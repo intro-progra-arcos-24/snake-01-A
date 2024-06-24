@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GridArenaManager : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class GridArenaManager : MonoBehaviour
         Vector2 posicionActualEnGrilla = new Vector2();
         posicionActualEnGrilla.x = puntoPartidaX;
         posicionActualEnGrilla.y = puntoPartidaY;
-
+        textoComida.text = "Comida: " + score.ToString();
         for (int i = alto-1; i >= 0; i--)
         {
             for (int j = 0; j < ancho; j++)
@@ -161,17 +162,21 @@ public class GridArenaManager : MonoBehaviour
     public void Perder()
     {
         AbrirPantallaFin();
+        SnakePrefab.enabled = false;
     }
 
     public void AbrirPantallaFin()
     {
-        //gameOverScreen.SetActive(true);
+        gameOverScreen.SetActive(true);
     }
-
+    public void reiniciar_escena()
+    {
+        SceneManager.LoadScene("Snake");
+    }
     public void Score(int modificar)
     {
         score += modificar;
-        textoComida.text = "Comida: " + score;
+        textoComida.text = "Comida: " + score.ToString();
     }
 }
 
