@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GridArenaManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class GridArenaManager : MonoBehaviour
     public SnakeSegment SegmentoPrefab;
     public GameObject gameOverScreen;
     public TextMeshProUGUI textoComida;
-
+    private Snake player;
     public GridSlot[,] grilla;
 
     int score = 0;
@@ -71,7 +72,7 @@ public class GridArenaManager : MonoBehaviour
             new Vector3(slot.posicionMundo.x, slot.posicionMundo.y, 0),
             Quaternion.identity
             );
-
+        player = itemEnGrilla;
         slot.itemEnSlot = itemEnGrilla;
         itemEnGrilla.currentGridSlot = slot;
         itemEnGrilla.gridArenaManager = this;
@@ -160,17 +161,23 @@ public class GridArenaManager : MonoBehaviour
 
     public void Perder()
     {
+        player.enabled = false;
         AbrirPantallaFin();
     }
 
     public void AbrirPantallaFin()
     {
-        //gameOverScreen.SetActive(true);
+        gameOverScreen.SetActive(true);
+    }
+    public void ReloadScene()
+    {
+        string scene = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(scene);
     }
 
-    public void Score(int modificar)
+    public void Score()
     {
-        score += modificar;
+        score++;
         textoComida.text = "Comida: " + score;
     }
 }

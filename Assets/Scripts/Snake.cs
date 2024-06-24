@@ -7,7 +7,9 @@ public class Snake : GridItem
     public float speed = 20f;
     public float speedMultiplier = 1f;
     public SnakeSegment SegmentoPrefab;
-
+    
+    public AudioClip mordida;
+    private AudioSource aS;
 
     private Vector2Int input;
     private float nextUpdate;
@@ -17,7 +19,7 @@ public class Snake : GridItem
 
     private void Start()
     {
-        
+        aS = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -92,22 +94,23 @@ public class Snake : GridItem
             (item.itemEnSlot is SnakeSegment)
             )
         {
-            Debug.Log("Hazard");
             gridArenaManager.Perder();
         }
         else if(item.itemEnSlot is Food food)
         {
-            Debug.Log("Comida");
             //spawnear un segmento de la cola en la posicion actual
-            //NuevoSegmento(currentGridSlot.indiceGrilla);
+            NuevoSegmento(currentGridSlot.indiceGrilla);
             
             //mover al player a la posicion de la comida
             gridArenaManager.CambiarItemEnGrilla(posGrilla, this);
             float x = transform.position.x + direction.x;
             float y = transform.position.y + direction.y;
             transform.position = new Vector2(x, y);
-
-            //gridArenaManager.Score(1);
+            gridArenaManager.Score();
+            if(aS != null && mordida != null)
+            {
+                aS.PlayOneShot(mordida);
+            }
             food.Reposicionar();
         }
         else if (item.itemEnSlot is SnakeSegment segment)
