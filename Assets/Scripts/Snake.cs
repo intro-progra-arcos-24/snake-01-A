@@ -8,7 +8,7 @@ public class Snake : GridItem
     public float speedMultiplier = 1f;
     public SnakeSegment SegmentoPrefab;
     GridArenaManager gridarena;
-
+    public AudioSource eating;
     private Vector2Int input;
     private float nextUpdate;
     private SnakeSegment aMover;
@@ -100,7 +100,7 @@ public class Snake : GridItem
             Debug.Log("Comida");
             //spawnear un segmento de la cola en la posicion actual
             //NuevoSegmento(currentGridSlot.indiceGrilla);
-            
+            eating.Play();
             //mover al player a la posicion de la comida
             gridArenaManager.CambiarItemEnGrilla(posGrilla, this);
             float x = transform.position.x + direction.x;

@@ -162,7 +162,7 @@ public class GridArenaManager : MonoBehaviour
     public void Perder()
     {
         AbrirPantallaFin();
-        SnakePrefab.enabled = false;
+        //Snake.;
     }
 
     public void AbrirPantallaFin()
