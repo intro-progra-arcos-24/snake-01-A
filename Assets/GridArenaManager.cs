@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GridArenaManager : MonoBehaviour
 {
@@ -165,12 +166,18 @@ public class GridArenaManager : MonoBehaviour
 
     public void AbrirPantallaFin()
     {
-        //gameOverScreen.SetActive(true);
+        gameOverScreen.SetActive(true);
+        
     }
 
-    public void Score(int modificar)
+    public void ReloadScene()
     {
-        score += modificar;
+        SceneManager.LoadScene("Snake");
+    }
+
+    public void Score()
+    {
+        score ++;
         textoComida.text = "Comida: " + score;
     }
 }

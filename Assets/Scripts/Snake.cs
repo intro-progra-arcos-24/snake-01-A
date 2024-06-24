@@ -109,6 +109,7 @@ public class Snake : GridItem
 
             //gridArenaManager.Score(1);
             food.Reposicionar();
+            gridArenaManager.Score();
         }
         else if (item.itemEnSlot is SnakeSegment segment)
         {
