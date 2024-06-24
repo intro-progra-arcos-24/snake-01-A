@@ -92,11 +92,13 @@ public class Snake : GridItem
             (item.itemEnSlot is SnakeSegment)
             )
         {
-            Debug.Log("Hazard");
+
+            Debug.Log("Wall! wopmp");
             gridArenaManager.Perder();
         }
         else if(item.itemEnSlot is Food food)
         {
+
             Debug.Log("Comida");
             //spawnear un segmento de la cola en la posicion actual
             //NuevoSegmento(currentGridSlot.indiceGrilla);
@@ -113,6 +115,9 @@ public class Snake : GridItem
         else if (item.itemEnSlot is SnakeSegment segment)
         {
             Debug.Log("Segmento");
+
+            Debug.Log("GOggoGogoGOg");
+            //food.Reposicionar();
         }
     }
 
