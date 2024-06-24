@@ -15,6 +15,7 @@ public class Snake : GridItem
 
     bool lost;
     GridArenaManager gam;
+    public AudioSource auSo;
 
     private void Start()
     {
@@ -23,7 +24,6 @@ public class Snake : GridItem
 
     private void Update()
     {
-        // Only allow turning up or down while moving in the x-axis
         if (direction.x != 0f && !lost)
         {
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) {
@@ -32,7 +32,6 @@ public class Snake : GridItem
                 input = Vector2Int.down;
             }
         }
-        // Only allow turning left or right while moving in the y-axis
         else if (direction.y != 0f && !lost)
         {
             if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
@@ -99,6 +98,7 @@ public class Snake : GridItem
         }
         else if(item.itemEnSlot is Food food)
         {
+            //AUDIOSOURCE
             Debug.Log("Comida");
             //spawnear un segmento de la cola en la posicion actual
             NuevoSegmento(currentGridSlot.indiceGrilla);
