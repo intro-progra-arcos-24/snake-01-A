@@ -172,7 +172,7 @@ public class GridArenaManager : MonoBehaviour
     public void Score(int modificar)
     {
         score += modificar;
-        textoComida.text = "score: " + score;
+        textoComida.text = "Score: " + score;
     }
     public void Restart()
     {
