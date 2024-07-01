@@ -630,15 +630,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a860f9a57aa81c545ba077dd6b8bbd39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ancho: 46
-  alto: 25
+  ancho: 20
+  alto: 8
   wallPrefab: {fileID: 8482652930179088301, guid: 23c565b5c24877a4dbe6b4b4326799c3,
     type: 3}
   SnakePrefab: {fileID: 5789214838293785448, guid: 08c82a5b3b93d614684c4c2d0466a948,
     type: 3}
   FoodPrefab: {fileID: 8535412049493692128, guid: 42ea3bd611d57864aa9ed65ce6c67067,
     type: 3}
-  SegmentoPrefab: {fileID: 0}
+  SegmentoPrefab: {fileID: -4410650921207326664, guid: a20ea67b69b1572478630ab80ef547fd,
+    type: 3}
   gameOverScreen: {fileID: 383359755}
   textoComida: {fileID: 829744564}
 --- !u!1 &1012706436

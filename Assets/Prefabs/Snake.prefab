@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridArenaManager: {fileID: 0}
   direction: {x: 1, y: 0}
-  speed: 20
+  speed: 2
   speedMultiplier: 1
   SegmentoPrefab: {fileID: 0}
   eating: {fileID: -2476267930253167302}
@@ -115,7 +115,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 15a8aa46c734a8b459de35cd1fa78420, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
